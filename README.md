@@ -22,7 +22,7 @@ challenge-amigo-secreto/
 ├──assets
 ├──app.js
 ├──index.html
-├──readme.md
+├──README.md
 └── style.css
 ```
 
