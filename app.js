@@ -9,3 +9,24 @@ function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
   }
+
+function addAmigos() {
+    let amigoInput = document.querySelector("#amigo").value.trim();
+  
+    // Verificando se o campo está vazio
+    if (amigoInput === "") {
+      exibirTextoNaTela(".section-title", "Por favor, insira um nome.");
+      return;
+    }
+  
+    // Verificando se o nome já foi adicionado
+    if (amigos.includes(amigoInput)) {
+      exibirTextoNaTela(".section-title", `O nome ${amigoInput} já foi adicionado!`);
+      return;
+    }
+  
+    // Adicionando o nome na lista
+    amigos.push(amigoInput);
+    exibirTextoNaTela(".section-title", "Amigo adicionado! Insira o nome de outro amigo.");
+}
+  
