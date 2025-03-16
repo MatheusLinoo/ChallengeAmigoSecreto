@@ -33,3 +33,8 @@ function addAmigos() {
     exibirTextoNaTela(".section-title", "Amigo adicionado! Insira o nome de outro amigo.");
 }
   
+  // Verificando se atingiu o número mínimo de nomes para o sorteio
+  if (amigos.length >= numeroMinimoDeParticipantes && !mensagemMinimaExibida) {
+    exibirTextoNaTela(".section-title", "Você atingiu o número mínimo de participantes!");
+    mensagemMinimaExibida = true;
+  }
