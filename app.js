@@ -84,17 +84,20 @@ function exibirListaDeAmigos() {
       }
     const randomIndex = Math.floor(Math.random() * amigos.length);
     const amigoSorteado = amigos[randomIndex];
+    console.log(amigoSorteado);
     exibirTextoNaTela("#resultado", `O amigo sorteado foi: ${amigoSorteado}!`);
     exibirTextoNaTela(".section-title", `Parabéns ${amigoSorteado}!`);
+    // Limpa lista de nomes
     amigos = [];
     limparListaNomes();
     document.querySelector("#resetar").removeAttribute("disabled");
   }
   
   function limparListaNomes() {
-    document.querySelector("#listaAmigos").innerHTML = "";
-  }
-  
+    let listaNomes = document.querySelector("#listaAmigos");
+    listaNomes.innerHTML = "";
+  } 
+
   function reiniciarSorteio() {
     amigos = [];
     limparListaNomes();
@@ -107,7 +110,9 @@ function exibirListaDeAmigos() {
   
   document.querySelector("#resetar").addEventListener("click", reiniciarSorteio);
   
+
   document.querySelector("#amigo").addEventListener("keydown", function (event) {
+    // Verificando se a tecla Enter foi acionada
     if (event.key === "Enter" || event.keyCode === 13) {
       event.preventDefault();
       addAmigos();
