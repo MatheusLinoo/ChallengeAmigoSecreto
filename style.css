@@ -88,9 +88,32 @@ body {
 }
 
 .button-container {
-    width: 300px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os botões */
+    margin-top: 20px;
 }
+
+.button-draw, .button-resetar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+}
+
+.button-resetar {
+    background-color: #fff;
+    color: var(--color-text);
+    border: 2px solid #000;
+}
+
+.button-resetar:hover {
+    background-color: #a1a1a1;
+}
+
 
 /* Estilos de entrada de texto */
 .input-title {
