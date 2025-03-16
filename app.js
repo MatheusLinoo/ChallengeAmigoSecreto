@@ -11,6 +11,7 @@ function exibirTextoNaTela(tag, texto) {
   }
 
 function addAmigos() {
+    // Usando o valor do campo de entrada de texto
     let amigoInput = document.querySelector("#amigo").value.trim();
   
     // Verificando se o campo está vazio
@@ -30,11 +31,36 @@ function addAmigos() {
   
     // Adicionando o nome na lista
     amigos.push(amigoInput);
+    console.log(amigoInput);
     exibirTextoNaTela(".section-title", "Amigo adicionado! Insira o nome de outro amigo.");
-}
-  
-  // Verificando se atingiu o número mínimo de nomes para o sorteio
+    
+  // Verificando se o número mínimo de amigos para o sorteio foi atingido
+  // Só exibe a mensagem de quantidade mínima uma vez, quando o número de amigos atingir o mínimo
   if (amigos.length >= numeroMinimoDeParticipantes && !mensagemMinimaExibida) {
-    exibirTextoNaTela(".section-title", "Você atingiu o número mínimo de participantes!");
-    mensagemMinimaExibida = true;
+    exibirTextoNaTela(
+      ".section-title",
+      `Você atingiu o número mínimo de participantes!`
+    );
+    mensagemMinimaExibida = true; // Marca que a mensagem já foi exibida, evitando que apareça novamente
   }
+
+  //Resetando o campo de entrada para um novo nome e foca o input
+  document.querySelector("#amigo").value = "";
+  document.querySelector("#amigo").focus();
+  console.log(amigos);
+  exibirListaDeAmigos();
+}
+
+function exibirListaDeAmigos() {
+    let listaAmigos = document.querySelector("#listaAmigos");
+    listaAmigos.innerHTML = "";
+  
+    for (let i = 0; i < amigos.length; i++) {
+      let li = document.createElement("li");
+      li.textContent = amigos[i];
+      listaAmigos.appendChild(li);
+    }
+  }
+  
+
+  
