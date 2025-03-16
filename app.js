@@ -19,6 +19,9 @@ function addAmigos() {
       return;
     }
   
+    // Formatando o nome: Primeira letra maiúscula, restante minúsculo
+    amigoInput = amigoInput.charAt(0).toUpperCase() + amigoInput.slice(1).toLowerCase();
+  
     // Verificando se o nome já foi adicionado
     if (amigos.includes(amigoInput)) {
       exibirTextoNaTela(".section-title", `O nome ${amigoInput} já foi adicionado!`);
